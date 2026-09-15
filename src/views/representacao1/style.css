@@ -1,0 +1,449 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+
+  background: #111318;
+  color: #eeeeee;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  padding: 4rem 2rem;
+
+  font-size: 1.6rem;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+header {
+  margin-bottom: 2.5rem;
+}
+
+header span {
+  font-size: 1.2rem;
+  color: #888;
+  letter-spacing: 0.2rem;
+}
+
+h1 {
+  margin-top: 0.8rem;
+  font-size: 2.8rem;
+}
+
+header p {
+  margin-top: 0.8rem;
+  color: #999;
+}
+
+/* ========================================
+   NAVEGAÇÃO
+======================================== */
+
+.navigation {
+  display: flex;
+  gap: 0.6rem;
+
+  background: #191c22;
+
+  border: 0.1rem solid #292d35;
+  border-radius: 1rem;
+
+  padding: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.navigation button {
+  flex: 1;
+
+  border: none;
+  border-radius: 0.7rem;
+
+  padding: 1rem 1.2rem;
+  margin: 0;
+
+  background: transparent;
+  color: #888;
+
+  cursor: pointer;
+
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  transition: 0.15s;
+}
+
+.navigation button:hover {
+  background: #22262e;
+  color: #ccc;
+}
+
+.navigation button.active {
+  background: #eeeeee;
+  color: #111;
+}
+
+/* ========================================
+   PÁGINAS
+======================================== */
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.empty-page {
+  min-height: 30rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #191c22;
+
+  border: 0.1rem solid #292d35;
+  border-radius: 1.2rem;
+
+  color: #666;
+  font-size: 1.4rem;
+}
+
+/* ========================================
+   CARDS
+======================================== */
+
+.card {
+  background: #191c22;
+
+  border: 0.1rem solid #292d35;
+  border-radius: 1.2rem;
+
+  padding: 2.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ========================================
+   LABEL
+======================================== */
+
+label {
+  display: block;
+
+  font-size: 1.3rem;
+  color: #aaa;
+
+  margin-bottom: 0.7rem;
+}
+
+/* ========================================
+   INPUT
+======================================== */
+
+input {
+  width: 100%;
+
+  padding: 1.2rem 1.4rem;
+
+  background: #101217;
+
+  border: 0.1rem solid #30343d;
+  border-radius: 0.8rem;
+
+  color: white;
+
+  outline: none;
+
+  font-size: 1.5rem;
+}
+
+input:focus {
+  border-color: #777;
+}
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+button {
+  border: none;
+  border-radius: 0.8rem;
+
+  padding: 1.1rem 1.6rem;
+  margin-top: 1rem;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+/* ========================================
+   BOTÃO SIMULAR
+======================================== */
+
+.simulate {
+  background: #eeeeee;
+  color: #111;
+}
+
+.simulate:hover {
+  background: #d5d5d5;
+}
+
+/* ========================================
+   BOTÃO LIMPAR
+======================================== */
+
+.clear {
+  background: #292d35;
+  color: #ddd;
+
+  margin-left: 0.6rem;
+}
+
+.clear:hover {
+  background: #363b45;
+}
+
+/* ========================================
+   STATUS
+======================================== */
+
+.status {
+  margin-top: 1.6rem;
+
+  padding: 1.2rem;
+
+  border-radius: 0.8rem;
+
+  font-weight: bold;
+}
+
+.neutral {
+  background: #22262e;
+  color: #999;
+}
+
+.valid {
+  background: rgba(60, 200, 130, 0.12);
+  color: #62d99b;
+}
+
+.invalid {
+  background: rgba(255, 80, 90, 0.12);
+  color: #ff6872;
+}
+
+/* ========================================
+   ELEMENTOS OCULTOS
+======================================== */
+
+.hidden {
+  display: none;
+}
+
+/* ========================================
+   CONVERSÃO
+======================================== */
+
+.conversion {
+  margin-top: 1.4rem;
+
+  padding: 1.2rem;
+
+  background: #101217;
+
+  border-radius: 0.8rem;
+
+  color: #999;
+
+  font-size: 1.3rem;
+}
+
+code {
+  color: #eee;
+}
+
+/* ========================================
+   RECONHECIMENTO
+======================================== */
+
+.word-row {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.word-row input {
+  flex: 1;
+}
+
+.test {
+  background: #eeeeee;
+  color: #111;
+
+  white-space: nowrap;
+}
+
+/* ========================================
+   CABEÇALHO DOS TESTES
+======================================== */
+
+.tests-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.tests-header strong {
+  font-size: 1.4rem;
+}
+
+.tests-header button {
+  margin: 0;
+
+  padding: 0.7rem 1rem;
+
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   LISTA DE TESTES
+======================================== */
+
+.tests {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.7rem;
+
+  max-height: 25rem;
+
+  overflow-y: auto;
+}
+
+.test-item {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  background: #101217;
+
+  border: 0.1rem solid #272b33;
+  border-radius: 0.7rem;
+
+  padding: 1rem 1.2rem;
+
+  font-size: 1.4rem;
+}
+
+.test-expression {
+  color: #888;
+
+  font-size: 1.1rem;
+
+  margin-bottom: 0.4rem;
+}
+
+.test-expression code {
+  color: #ccc;
+}
+
+.test-word {
+  color: #aaa;
+  font-size: 1.4rem;
+}
+
+.accepted {
+  color: #62d99b;
+
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.rejected {
+  color: #ff6872;
+
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   REGRAS
+======================================== */
+
+.rules {
+  color: #aaa;
+
+  font-size: 1.3rem;
+
+  line-height: 1.8;
+}
+
+.rules code {
+  background: #101217;
+
+  padding: 0.2rem 0.5rem;
+
+  border-radius: 0.4rem;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 60rem) {
+  body {
+    padding: 2rem 1.2rem;
+  }
+
+  .navigation button {
+    font-size: 1.1rem;
+    padding: 1rem 0.6rem;
+  }
+
+  .card {
+    padding: 1.7rem;
+  }
+
+  .word-row {
+    flex-direction: column;
+  }
+
+  .test {
+    width: 100%;
+  }
+}

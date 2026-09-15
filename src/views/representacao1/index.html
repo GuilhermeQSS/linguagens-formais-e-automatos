@@ -1,11 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Simulador de Linguagens Regulares</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- CABEÇALHO -->
+      <header>
+        <span> LINGUAGENS FORMAIS E AUTÔMATOS </span>
+        <h1>Simulador de Linguagens Regulares</h1>
+        <p>Representações de linguagens regulares.</p>
+
+        <!-- CABEÇALHO ATUALIZADO: INTEGRANTES -->
+        <div class="integrantes-container">
+          <h2>Integrantes</h2>
+          <ul class="integrantes-list">
+            <li>Guilherme Leal Pessata Cesino Ribeiro</li>
+            <li>Guilherme Quintiliano Sobral e Silva</li>
+            <li>Rafael Silva Fiori</li>
+            <li>Rafael Rodrigues Mendes</li>
+          </ul>
+        </div>
+      </header>
+      <!-- NAVEGAÇÃO -->
+
+      <nav class="navigation">
+        <button id="navRegex" class="active">Expressões Regulares</button>
+
+        <button id="navAutomatos">Autômatos</button>
+
+        <button id="navGramatica">Gramáticas</button>
+      </nav>
+
+      <!-- REPRESENTAÇÃO 1 -->
+
+      <main id="pageRegex" class="page active">
+        <!-- EXPRESSÃO -->
+
+        <section class="card">
+          <h2>Expressão Regular</h2>
+
+          <label for="regex"> Digite a expressão: </label>
+
+          <input
+            id="regex"
+            type="text"
+            placeholder="Ex: (a+b).c"
+            autocomplete="off"
+          />
+
+          <button id="simulateButton" class="simulate">
+            Verificar Expressão
+          </button>
+
+          <button id="clearButton" class="clear">Limpar</button>
+
+          <div id="status" class="status neutral">Aguardando expressão.</div>
+
+          <div id="conversion" class="conversion hidden">
+            Regex JavaScript:
+            <code id="convertedRegex"></code>
+          </div>
+        </section>
+
+        <!-- RECONHECIMENTO -->
+
+        <section id="recognition" class="card hidden">
+          <h2>Reconhecimento de Palavras</h2>
+
+          <label for="word"> Digite uma palavra: </label>
+
+          <div class="word-row">
+            <input
+              id="word"
+              type="text"
+              placeholder="Ex: ac"
+              autocomplete="off"
+            />
+
+            <button id="testButton" class="test">Testar</button>
+          </div>
+
+          <div class="tests-header">
+            <strong id="counter"> 0 testes </strong>
+
+            <button id="clearTests" class="clear">Limpar testes</button>
+          </div>
+
+          <div id="tests" class="tests"></div>
+        </section>
+
+        <!-- REGRAS -->
+
+        <section class="card">
+          <h2>Operadores</h2>
+
+          <div class="rules">
+            <div>
+              <code>+</code> ou <code>|</code>
+              → União
+            </div>
+
+            <div>
+              <code>.</code>
+              → Concatenação
+            </div>
+
+            <div>
+              <code>*</code>
+              → Fechamento
+            </div>
+
+            <div>
+              <code>( )</code>
+              → Agrupamento
+            </div>
+
+            <div>
+              <code>ε</code>
+              → Vazio
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- REPRESENTAÇÃO 2 -->
+
+      <main id="pageAutomatos" class="page">
+        <div class="empty-page">Representação 2 — Autômatos Finitos</div>
+      </main>
+
+      <!-- REPRESENTAÇÃO 3 -->
+
+      <main id="pageGramatica" class="page">
+        <div class="empty-page">Representação 3 — Gramáticas Regulares</div>
+      </main>
+    </div>
+
+    <script type="module" src="../../controllers/representacao1.js"></script>
+  </body>
 </html>
