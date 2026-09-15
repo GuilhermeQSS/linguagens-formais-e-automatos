@@ -1,12 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Autômato</title>
+
+    <style>
+        #grafo {
+            width: 800px;
+            height: 600px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <div id="grafo"></div>
+
+    <script src="https://unpkg.com/cytoscape@3.33.1/dist/cytoscape.min.js"></script>
+
+    <script>
+        const cy = cytoscape({
+            container: document.getElementById('grafo'),
+
+            elements: [
+                {
+                    data: {
+                        id: 'q0'
+                    }
+                },
+                {
+                    data: {
+                        id: 'q1'
+                    }
+                },
+                {
+                    data: {
+                        id: 't1',
+                        source: 'q0',
+                        target: 'q1'
+                    }
+                }
+            ],
+
+            style: [
+                {
+                    selector: 'node',
+                    style: {
+                        'label': 'data(id)'
+                    }
+                },
+                {
+                    selector: 'edge',
+                    style: {
+                        'curve-style': 'bezier',
+                        'target-arrow-shape': 'triangle'
+                    }
+                }
+            ],
+
+            layout: {
+                name: 'grid'
+            }
+        });
+    </script>
 
 </body>
 </html>
