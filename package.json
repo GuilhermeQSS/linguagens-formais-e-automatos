@@ -1,0 +1,18 @@
+{
+  "name": "linguagens-formais-e-automatos",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/GuilhermeQSS/linguagens-formais-e-automatos#readme",
+  "bugs": {
+    "url": "https://github.com/GuilhermeQSS/linguagens-formais-e-automatos/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuilhermeQSS/linguagens-formais-e-automatos.git"
+  },
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
