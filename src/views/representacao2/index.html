@@ -1,71 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Autômatos Finitos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <nav class="navegacao-representacoes" aria-label="Selecionar representação">
+        <a href="../representacao1/index.html">
+          <span>Representação 1</span>
+          <strong>Expressões regulares</strong>
+        </a>
+        <a href="index.html" class="atual" aria-current="page">
+          <span>Representação 2</span>
+          <strong>Autômatos finitos</strong>
+        </a>
+        <span class="indisponivel" aria-disabled="true">
+          <span>Representação 3</span>
+          <strong>Gramáticas <small>Em breve</small></strong>
+        </span>
+      </nav>
 
-    <title>Autômato</title>
+      <header class="cabecalho">
+        <div>
+          <span>REPRESENTAÇÃO 2</span>
+          <h1>Autômatos Finitos</h1>
+          <p>Construa e simule AFDs e AFNDs por diagramas de transições.</p>
+        </div>
+        <label class="tipo">Tipo do autômato
+          <select id="tipoAutomato">
+            <option value="AFD">AFD — Determinístico</option>
+            <option value="AFND">AFND — Não determinístico</option>
+          </select>
+        </label>
+      </header>
 
-    <style>
-        #grafo {
-            width: 800px;
-            height: 600px;
-            border: 1px solid black;
-        }
-    </style>
-</head>
+      <div id="mensagem" class="mensagem neutra" role="status">Crie os estados do autômato.</div>
 
-<body>
+      <section class="grade-editor">
+        <article class="card">
+          <h2>Estados</h2>
+          <form id="formEstado">
+            <label for="nomeEstado">Nome</label>
+            <input id="nomeEstado" maxlength="20" placeholder="Ex.: q0" required />
+            <div class="checks">
+              <label><input id="estadoInicial" type="checkbox" /> Inicial</label>
+              <label><input id="estadoFinal" type="checkbox" /> Final</label>
+            </div>
+            <div class="acoes">
+              <button id="salvarEstado" type="submit" class="primario">Adicionar estado</button>
+              <button id="cancelarEstado" type="button" class="secundario oculto">Cancelar</button>
+            </div>
+          </form>
+          <div id="listaEstados" class="lista-vazia">Nenhum estado criado.</div>
+        </article>
 
-    <div id="grafo"></div>
+        <article class="card">
+          <h2>Transições</h2>
+          <form id="formTransicao">
+            <div class="linha-campos">
+              <label>Origem<select id="origem" required></select></label>
+              <label>Destino<select id="destino" required></select></label>
+            </div>
+            <label for="simbolo">Símbolos <small>(separados por vírgula; use ε no AFND)</small></label>
+            <input id="simbolo" maxlength="100" placeholder="Ex.: a, b, c" required />
+            <div class="acoes">
+              <button id="salvarTransicao" type="submit" class="primario">Adicionar transição</button>
+              <button id="cancelarTransicao" type="button" class="secundario oculto">Cancelar</button>
+            </div>
+          </form>
+          <div id="listaTransicoes" class="lista-vazia">Nenhuma transição criada.</div>
+        </article>
+      </section>
+
+      <section class="card diagrama-card">
+        <div class="titulo-linha">
+          <div><h2>Diagrama de transições</h2><p>Arraste os estados para reorganizar o diagrama.</p></div>
+          <button id="centralizar" class="secundario" type="button">Centralizar</button>
+        </div>
+        <div id="grafo" aria-label="Diagrama do autômato"></div>
+        <div class="legenda"><span class="ponto inicial"></span> Inicial <span class="ponto final"></span> Final <span class="ponto ativo"></span> Estado atual</div>
+      </section>
+
+      <section class="card">
+        <h2>Reconhecimento de palavras</h2>
+        <div class="abas" role="tablist">
+          <button class="aba ativa" data-alvo="painelUnico" type="button">Entrada única</button>
+          <button class="aba" data-alvo="painelMultiplo" type="button">Múltiplas entradas</button>
+          <button class="aba" data-alvo="painelPassos" type="button">Passo a passo</button>
+        </div>
+
+        <div id="painelUnico" class="painel ativo">
+          <label for="palavraUnica">Palavra</label>
+          <div class="entrada-botao"><input id="palavraUnica" placeholder="Deixe vazio para ε" /><button id="reconhecerUma" class="primario">Reconhecer</button></div>
+          <div id="resultadoUnico" class="resultado vazio">Aguardando uma palavra.</div>
+        </div>
+
+        <div id="painelMultiplo" class="painel">
+          <label for="palavrasMultiplas">Uma palavra por linha <small>(linha vazia representa ε)</small></label>
+          <textarea id="palavrasMultiplas" rows="6" placeholder="abba&#10;aaa&#10;b"></textarea>
+          <button id="reconhecerMultiplas" class="primario espacamento">Reconhecer todas</button>
+          <div id="resultadosMultiplos" class="resultados"></div>
+        </div>
+
+        <div id="painelPassos" class="painel">
+          <label for="palavraPassos">Palavra</label>
+          <div class="entrada-botao"><input id="palavraPassos" placeholder="Ex.: abba" /><button id="iniciarPassos" class="primario">Iniciar</button></div>
+          <div id="controlePassos" class="controle-passos oculto">
+            <button id="passoAnterior" class="secundario">← Anterior</button>
+            <strong id="descricaoPasso"></strong>
+            <button id="proximoPasso" class="primario">Próximo →</button>
+          </div>
+          <div id="resultadoPassos" class="resultado vazio">Inicie uma simulação.</div>
+        </div>
+      </section>
+    </main>
 
     <script src="https://unpkg.com/cytoscape@3.33.1/dist/cytoscape.min.js"></script>
-
-    <script>
-        const cy = cytoscape({
-            container: document.getElementById('grafo'),
-
-            elements: [
-                {
-                    data: {
-                        id: 'q0'
-                    }
-                },
-                {
-                    data: {
-                        id: 'q1'
-                    }
-                },
-                {
-                    data: {
-                        id: 't1',
-                        source: 'q0',
-                        target: 'q1'
-                    }
-                }
-            ],
-
-            style: [
-                {
-                    selector: 'node',
-                    style: {
-                        'label': 'data(id)'
-                    }
-                },
-                {
-                    selector: 'edge',
-                    style: {
-                        'curve-style': 'bezier',
-                        'target-arrow-shape': 'triangle'
-                    }
-                }
-            ],
-
-            layout: {
-                name: 'grid'
-            }
-        });
-    </script>
-
-</body>
+    <script type="module" src="../../controllers/representacao2.js"></script>
+  </body>
 </html>
