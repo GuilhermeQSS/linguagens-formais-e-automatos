@@ -149,7 +149,7 @@ navRegex.addEventListener("click", () => {
 });
 
 navAutomatos.addEventListener("click", () => {
-  window.location.href = "../representacao2/index.html";
+  window.location.href = "/representacao2";
 });
 
 navGramatica.addEventListener("click", () => {

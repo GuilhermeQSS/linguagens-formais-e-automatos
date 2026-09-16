@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulador de Autômatos Finitos</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/src/views/representacao2/style.css" />
   </head>
   <body>
     <main class="container">
       <nav class="navegacao-representacoes" aria-label="Selecionar representação">
-        <a href="../representacao1/index.html">
+        <a href="/representacao1">
           <span>Representação 1</span>
           <strong>Expressões regulares</strong>
         </a>
-        <a href="index.html" class="atual" aria-current="page">
+        <a href="/representacao2" class="atual" aria-current="page">
           <span>Representação 2</span>
           <strong>Autômatos finitos</strong>
         </a>
@@ -119,6 +119,6 @@
     </main>
 
     <script src="https://unpkg.com/cytoscape@3.33.1/dist/cytoscape.min.js"></script>
-    <script type="module" src="../../controllers/representacao2.js"></script>
+    <script type="module" src="/src/controllers/representacao2.js"></script>
   </body>
 </html>

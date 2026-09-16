@@ -11,8 +11,13 @@
     "url": "git+https://github.com/GuilhermeQSS/linguagens-formais-e-automatos.git"
   },
   "type": "commonjs",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "path": "^0.12.7"
   }
 }
