@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Gramáticas</title>
+    <link rel="stylesheet" href="/src/views/representacao3/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <nav class="navegacao-representacoes" aria-label="Selecionar representação">
+        <a href="/representacao1"><span>Representação 1</span><strong>Expressões regulares</strong></a>
+        <a href="/representacao2"><span>Representação 2</span><strong>Autômatos finitos</strong></a>
+        <a href="/representacao3" class="atual" aria-current="page"><span>Representação 3</span><strong>Gramáticas</strong></a>
+      </nav>
+
+      <header class="cabecalho">
+        <span>REPRESENTAÇÃO 3</span>
+        <h1>Gramáticas</h1>
+        <p>Defina produções com vários símbolos em qualquer ordem e acompanhe a derivação de uma palavra.</p>
+      </header>
+
+      <div id="mensagem" class="mensagem neutra" role="status">Cadastre os terminais e as produções para começar.</div>
+
+      <section class="card" aria-labelledby="tituloGramatica">
+        <h2 id="tituloGramatica">Definição da gramática</h2>
+        <label for="terminais">Símbolos terminais <small>(um caractere por item, separados por vírgula)</small></label>
+        <input id="terminais" autocomplete="off" placeholder="Ex.: a, b" />
+        <div id="definicao" class="definicao" aria-live="polite"></div>
+
+        <div class="titulo-producoes"><h2>Produções P</h2><small>Campo vazio representa ε</small></div>
+        <div id="linhasProducoes" class="linhas-producoes"></div>
+        <button id="adicionarNaoTerminal" class="secundario botao-simbolo" type="button" aria-label="Adicionar não terminal" title="Adicionar não terminal">+</button>
+        <div class="acoes">
+          <button id="simular" class="primario" type="button">Simular</button>
+          <button id="editar" class="secundario oculto" type="button">Editar gramática</button>
+        </div>
+      </section>
+
+      <section id="areaSimulacao" class="card oculto" aria-labelledby="tituloSimulacao">
+        <div class="titulo-simulacao"><h2 id="tituloSimulacao">Simulação</h2><button id="reiniciar" class="secundario" type="button">Reiniciar derivação</button></div>
+        <p class="instrucao">Clique em um não terminal da cadeia e escolha uma produção.</p>
+        <div id="cadeia" class="cadeia" aria-live="polite"></div>
+        <div id="opcoes" class="opcoes oculto"></div>
+        <div id="resultado" class="resultado oculto" role="status"></div>
+      </section>
+    </main>
+    <script type="module" src="/src/controllers/representacao3.js"></script>
+  </body>
+</html>

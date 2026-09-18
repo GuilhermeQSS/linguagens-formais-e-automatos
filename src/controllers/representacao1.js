@@ -153,5 +153,5 @@ navAutomatos.addEventListener("click", () => {
 });
 
 navGramatica.addEventListener("click", () => {
-  mudarPagina(pageGramatica, navGramatica);
+  window.location.href = "/representacao3";
 });

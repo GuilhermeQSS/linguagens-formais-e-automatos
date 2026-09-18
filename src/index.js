@@ -13,6 +13,10 @@ app.get('/representacao2', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'representacao2', 'index.html'));
 });
 
+app.get('/representacao3', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'representacao3', 'index.html'));
+});
+
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}/representacao1`);
 });
